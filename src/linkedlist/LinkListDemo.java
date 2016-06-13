@@ -11,5 +11,8 @@ public class LinkListDemo {
 		l.add(25);
 		l.add(30);
 		System.out.println(l.size());
+		for (Integer integer : l) {
+			System.out.println(integer);
+		}
 	}
 }
