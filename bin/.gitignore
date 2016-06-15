@@ -1,4 +1,5 @@
 /geometry
+<<<<<<< HEAD
 /concept/
 /immutable/
 /linkedlist/
@@ -7,3 +8,6 @@
 /sorting/
 /stack/
 /tree/
+=======
+/concept
+>>>>>>> daaf0ffb0255c22c83cc6175dbd7675c604c4078
