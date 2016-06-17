@@ -6,7 +6,7 @@ Now we have a template for creating immutable objects.
    making your methods final (Weak Immutability)
 4) If a field isn't primitive or immutable, make a deep clone on the way in and the way out.(Most Important concept)*/
 
-package immutable;
+package concept;
 
 import java.util.Date;
 
@@ -14,12 +14,12 @@ import java.util.Date;
  * @author Mayank
  *
  */
-public final class Immute {
+public final class Immutable {
 	private String firstName;
 	private String lastName;
 	private Date dob;
 
-	public Immute(String firstName, String lastName, Date dob) {
+	public Immutable(String firstName, String lastName, Date dob) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dob = new Date(dob.getTime()); /** Cloning on the way in*/
