@@ -12,7 +12,7 @@ public class OverridingCov {
 	}
 }
 
-class OverridingCov1 {
+class OverridingCov1 extends OverridingCov {
 
 	public static String  m1(){
 		return null;
