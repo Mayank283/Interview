@@ -1,6 +1,19 @@
 package tree;
 
 public class BinaryTreeNode {
+	
+	public BinaryTreeNode() {
+	}
+
+	public BinaryTreeNode(BinaryTreeNode left, BinaryTreeNode right, int data) {
+		super();
+		this.left = left;
+		this.right = right;
+		this.data = data;
+	}
+
+
+
 	BinaryTreeNode left;
 	BinaryTreeNode right;
 	int data;
