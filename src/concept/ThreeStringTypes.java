@@ -28,6 +28,7 @@ public class ThreeStringTypes {
 
 		StringBuffer sb1 = new StringBuffer("mayank");
 		StringBuffer sb2 = new StringBuffer("mayank");
+		System.out.println(sb1.reverse());
 
 		String ss1 = "Amit";
 

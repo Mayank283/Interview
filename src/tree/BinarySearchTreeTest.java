@@ -16,9 +16,10 @@ public class BinarySearchTreeTest {
 		
 		BinarySearchTree.inorderTraversal(root);
 		
-		System.out.println();
+		System.out.println("Height"+BinarySearchTree.height(root));
 		
-		System.out.println(BinarySearchTree.search(root,15));
+		System.out.println(BinarySearchTree.search(root,1));
+		System.out.println(BinaryTree.search(root, 12));
 		System.out.println(BinarySearchTree.findmax(root).getData());
 		System.out.println(BinarySearchTree.findmin(root).getData());
 	}

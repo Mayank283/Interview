@@ -28,25 +28,25 @@ public class BinarySearchTree extends BinaryTree {
 		return root;
 	}
 	// Recursive search
-	public static Boolean search(BinaryTreeNode root, int data) {
+	public static boolean search(BinaryTreeNode root, int data) {
 
 		if (root==null){
 			return false;
 		}
-		if (data == root.getData()) {
-			return true;
-		}
 		if (data > root.getData()) {
 			return search(root.getRight(), data);
 		}
-		if (data < root.getData()) {
+		else if (data < root.getData()) {
 			return search(root.getLeft(), data);
 		}
 
-		return false;
+		return true;
 	}
 	// Recursive findmax
 	public static BinaryTreeNode findmax(BinaryTreeNode root){
+		if(root==null){
+			return null;
+		}
 		
 		if(root.getRight()==null){
 			return root;
@@ -56,6 +56,9 @@ public class BinarySearchTree extends BinaryTree {
 	}
 	// Recursive findmin
 	public static BinaryTreeNode findmin(BinaryTreeNode root){
+		if (root == null){
+			return null;
+		}
 		
 		if(root.getLeft()==null){
 			return root;

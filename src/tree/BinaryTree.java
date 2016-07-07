@@ -1,8 +1,13 @@
 package tree;
 
 /**
- * Methods of BinaryTree a) insert node b) delete node c) Search element d) find
- * max element e) find height of tree f) Traversal
+ * Methods of BinaryTree
+ * a) insert node
+ * b) delete node
+ * c) Search element
+ * d) find max element
+ * e) find height of tree
+ * f) Traversal
  * Preorder,Inorder,Postorder,LevelOrder
  */
 
@@ -11,7 +16,7 @@ public class BinaryTree {
 	// Preorder
 	public static void preorderTraversal(BinaryTreeNode root) {
 		if (root != null) {
-			System.out.print(root.getData() + ' ');
+			System.out.print(root.getData() + " ");
 			preorderTraversal(root.getLeft());
 			preorderTraversal(root.getRight());
 		}
@@ -31,7 +36,29 @@ public class BinaryTree {
 		if (root != null) {
 			postorderTraversal(root.getLeft());
 			postorderTraversal(root.getRight());
-			System.out.print(root.getData() + ' ');
+			System.out.print(root.getData() + " ");
 		}
+	}
+	
+	public static int height(BinaryTreeNode root){
+		
+		if(root==null){
+			return -1;
+		}
+		
+		return Math.max(height(root.getLeft()),height(root.getRight()))+1;
+	}
+	
+	public static boolean search(BinaryTreeNode root, int data){
+		
+		if(root==null){
+			return false;
+		}
+		
+		if(data == root.getData()){
+			return true;
+		}
+		
+		return search(root.getLeft(),data)||search(root.getRight(),data);
 	}
 }
