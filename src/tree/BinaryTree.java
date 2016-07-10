@@ -39,7 +39,7 @@ public class BinaryTree {
 			System.out.print(root.getData() + " ");
 		}
 	}
-	
+	//Height
 	public static int height(BinaryTreeNode root){
 		
 		if(root==null){
@@ -48,7 +48,7 @@ public class BinaryTree {
 		
 		return Math.max(height(root.getLeft()),height(root.getRight()))+1;
 	}
-	
+	//Search in BinaryTree
 	public static boolean search(BinaryTreeNode root, int data){
 		
 		if(root==null){
