@@ -25,4 +25,31 @@ public class Heap {
 	public int getMinimum(int i){
 		return i;
 	}
+	
+	public static int[] maxHeap(int arr[],int i,int n){
+		int left=2*i+1;
+		int right=2*i+2;
+		int large;
+		
+		if( left<n && arr[left]> arr[i])
+			large = left;
+		else
+			large=i;
+		
+		if(right<n && arr[right]>arr[large])
+			large=right;
+		
+		if(large!=i){
+			swap(arr,i,large);
+			maxHeap(arr,large,n);
+		}
+			return arr;
+	}
+	private static int[] swap(int[]arr, int i, int j) {
+		int temp;
+		temp=arr[i];
+		arr[i]=arr[j];
+		arr[j]=temp;
+		return arr;	
+	}
 }
