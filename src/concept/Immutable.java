@@ -1,4 +1,5 @@
 /**
+ *http://www.javaranch.com/journal/2003/04/immutable.htm
 Now we have a template for creating immutable objects.
 1) Make all fields private
 2) Don't provide mutators
@@ -24,8 +25,8 @@ import java.util.Date;
  *
  */
 public final class Immutable {
-	private final String firstName;
-	private final String lastName;
+	private String firstName;
+	private String lastName;
 	private Date dob;
 
 	public Immutable(String firstName, String lastName, Date dob) {
