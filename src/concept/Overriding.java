@@ -1,6 +1,7 @@
 package concept;
 
 /**
+ * Method Overriding is also called as Dynamic/Runtime Polymorphism.
 Overriding is a complex process.
 Things to take into consideration:
 
