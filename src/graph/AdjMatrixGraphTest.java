@@ -12,8 +12,8 @@ public class AdjMatrixGraphTest {
 		graph.addEdge("Mathura", "Delhi");
 		graph.addEdge("Delhi", "Jaipur");
 		graph.addEdge("Agra", "Jaipur");
-		System.out.println(graph.isConnected("Mathura", "Jaipur"));
-		System.out.println(graph.isConnected("Mathura", "Delhi"));
+		System.out.println(graph.isEdge("Mathura", "Jaipur"));
+		System.out.println(graph.isEdge("Mathura", "Delhi"));
 		System.out.println(graph.getNeighbours("Jaipur"));
 	}
 }

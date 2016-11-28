@@ -41,7 +41,7 @@ public class AdjMatrixGraph {
 		}
 	}
 
-	public boolean isConnected(String source, String destination) {
+	public boolean isEdge(String source, String destination) {
 		int i = vertex.indexOf(source);
 		int j = vertex.indexOf(destination);
 		if (i >= 0 && i < vertexCount && j >= 0 && j < vertexCount) {
