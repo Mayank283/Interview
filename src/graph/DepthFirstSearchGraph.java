@@ -24,7 +24,7 @@ public class DepthFirstSearchGraph {
 		}
 	}
 
-	//Adding the vertex
+	// Adding the vertex
 	public void addVertex(char label) {
 		vertexList.add(new Vertex(label));
 	}
@@ -50,8 +50,8 @@ public class DepthFirstSearchGraph {
 			adjList[i].add(destination1);
 		}
 	}
-	
-	//Get neighbours/Adjacent vertex's
+
+	// Get neighbours/Adjacent vertex's
 	public ArrayList<Character> getNeighbours(char source) {
 		Vertex source1 = null;
 		ArrayList<Character> neighbours = new ArrayList<Character>();
@@ -72,12 +72,26 @@ public class DepthFirstSearchGraph {
 
 		return neighbours;
 	}
-	
-	public void displayVertex(int source){
-		System.out.println(vertexList.get(source).getLabel());
+
+	public void displayVertex(int i) {
+		
 	}
-	
-	//Check if there is an edge between 2 vertex's
+
+	public void dfs(char start) {
+		Vertex start1=null;
+		Iterator<Vertex> iterate = vertexList.listIterator();
+		while (iterate.hasNext()) {
+			Vertex n = iterate.next();
+			if (n.getLabel() == start) {
+				start1 = n;
+				break;
+			}
+		}
+		start1.setVisited(true);
+		
+	}
+
+	// Check if there is an edge between 2 vertex's
 	public boolean isEdge(char source, char destination) {
 
 		Vertex source1 = null, destination1 = null;
