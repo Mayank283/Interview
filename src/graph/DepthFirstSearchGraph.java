@@ -3,6 +3,7 @@ package graph;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * Application of DFS: To check if the two vertex are connected or not:
@@ -25,12 +26,12 @@ public class DepthFirstSearchGraph {
 	}
 
 	// Adding the vertex
-	public void addVertex(char label) {
+	public void addVertex(String label) {
 		vertexList.add(new Vertex(label));
 	}
 
 	/** Implementation of Directed graph */
-	public void addEdge(char source, char destination) {
+	public void addEdge(String source, String destination) {
 
 		Vertex source1 = null, destination1 = null;
 		Iterator<Vertex> iterate = vertexList.listIterator();
@@ -52,10 +53,12 @@ public class DepthFirstSearchGraph {
 	}
 
 	// Get neighbours/Adjacent vertex's
-	public ArrayList<Character> getNeighbours(char source) {
+	public ArrayList<String> getNeighbours(String source) {
+		
 		Vertex source1 = null;
-		ArrayList<Character> neighbours = new ArrayList<Character>();
+		ArrayList<String> neighbours = new ArrayList<String>();
 		Iterator<Vertex> iterate = vertexList.listIterator();
+		
 		while (iterate.hasNext()) {
 			Vertex n = iterate.next();
 			if (n.getLabel() == source) {
@@ -63,22 +66,25 @@ public class DepthFirstSearchGraph {
 				break;
 			}
 		}
+		
 		int i = vertexList.indexOf(source1);
 		Iterator<Vertex> iterate1 = adjList[i].listIterator();
+		
 		while (iterate1.hasNext()) {
 			Vertex n = iterate1.next();
 			neighbours.add(n.getLabel());
 		}
-
+		
 		return neighbours;
 	}
 
-	public void displayVertex(int i) {
-		
+	public void displayVertex(Vertex v) {
+		System.out.print(v.getLabel()+" ");
 	}
 
-	public void dfs(char start) {
-		Vertex start1=null;
+	public void dfs(String start) {
+		Vertex start1 = null;
+		Stack<Vertex> stack = new Stack<Vertex>();
 		Iterator<Vertex> iterate = vertexList.listIterator();
 		while (iterate.hasNext()) {
 			Vertex n = iterate.next();
@@ -87,12 +93,37 @@ public class DepthFirstSearchGraph {
 				break;
 			}
 		}
+
 		start1.setVisited(true);
-		
+		displayVertex(start1);
+		stack.push(start1);
+
+		while (!stack.isEmpty()) {
+			Vertex unvisited = getAdjUnvisited(stack.peek());
+			if (unvisited == null) {
+				stack.pop();
+			} else {
+				unvisited.setVisited(true);
+				displayVertex(unvisited);
+				stack.push(unvisited);
+			}
+		}
+	}
+
+	public Vertex getAdjUnvisited(Vertex visited) {
+		int i = vertexList.indexOf(visited);
+		Iterator<Vertex> iterate1 = adjList[i].listIterator();
+		while (iterate1.hasNext()) {
+			Vertex n = iterate1.next();
+			if (n.isVisited() == false) {
+				return n;
+			}
+		}
+		return null;
 	}
 
 	// Check if there is an edge between 2 vertex's
-	public boolean isEdge(char source, char destination) {
+	public boolean isEdge(String source, String destination) {
 
 		Vertex source1 = null, destination1 = null;
 		Iterator<Vertex> iterate = vertexList.listIterator();
@@ -113,20 +144,20 @@ public class DepthFirstSearchGraph {
 
 class Vertex {
 
-	private char label;
+	private String label;
 	private boolean visited;
 
-	public Vertex(char label) {
+	public Vertex(String label) {
 		super();
 		this.label = label;
 		this.visited = false;
 	}
 
-	public char getLabel() {
+	public String getLabel() {
 		return label;
 	}
 
-	public void setLabel(char label) {
+	public void setLabel(String label) {
 		this.label = label;
 	}
 

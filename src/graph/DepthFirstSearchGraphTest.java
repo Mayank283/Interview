@@ -4,20 +4,20 @@ public class DepthFirstSearchGraphTest {
 
 	public static void main(String[] args) {
 		DepthFirstSearchGraph graph = new DepthFirstSearchGraph(4);
-		graph.addVertex('A');
-		graph.addVertex('B');
-		graph.addVertex('C');
-		graph.addVertex('D');
-		graph.addEdge('A', 'B');
-		graph.addEdge('A', 'D');
-		graph.addEdge('B', 'A');
-		graph.addEdge('B', 'C');
-		graph.addEdge('C', 'C');
-		System.out.println(graph.isEdge('B', 'C'));
-		System.out.println(graph.getNeighbours('A'));
-		System.out.println(graph.getNeighbours('B'));
-		System.out.println(graph.getNeighbours('C'));
-		System.out.println(graph.getNeighbours('D'));
-		graph.displayVertex(1);
+		graph.addVertex("Mathura");
+		graph.addVertex("Agra");
+		graph.addVertex("Delhi");
+		graph.addVertex("Jaipur");
+		graph.addEdge("Mathura", "Agra");
+		graph.addEdge("Mathura", "Jaipur");
+		graph.addEdge("Agra", "Mathura");
+		graph.addEdge("Agra", "Delhi");
+		graph.addEdge("Delhi", "Delhi");
+		System.out.println(graph.isEdge("Agra", "Delhi"));
+		System.out.println(graph.getNeighbours("Mathura"));
+		System.out.println(graph.getNeighbours("Agra"));
+		System.out.println(graph.getNeighbours("Delhi"));
+		System.out.println(graph.getNeighbours("Jaipur"));
+		graph.dfs("Mathura");
 	}
 }
