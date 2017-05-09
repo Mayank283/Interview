@@ -5,5 +5,5 @@ package lambda;
 
 public interface LambdaExp {
 
-	public String printName(String name);
+	public boolean printName(String name);
 }

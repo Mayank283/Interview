@@ -2,8 +2,6 @@ package lambda;
 
 public class LambdaTest {
 
-	private String name;
-
 	public static void main(String[] args) {
 
 		LambdaTest lm = new LambdaTest();
@@ -14,13 +12,12 @@ public class LambdaTest {
 		LambdaTest lt = new LambdaTest();
 		   /**Give the parameter required by the functional Interface method 
 		and the implementation of it*/
-		lt.subscribe(name -> {
-			this.name = name;
-			return this.name;
+		lt.subscribe(string -> {
+			return string.equals("Mayank");
 		});
 	}
 
 	public void subscribe(LambdaExp lambda) {
-		System.out.println(lambda.printName("Mayank"));
+		System.out.println(lambda.printName("Mayak"));
 	}
 }
