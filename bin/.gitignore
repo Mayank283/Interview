@@ -1,12 +1,3 @@
-/concept/
-/geometry/
-/graph/
-/hackerrank/
-/heaps/
-/javascript/
-/jdbc/
-/lambda/
-/linkedlist/
 /multithreading/
 /question/
 /queue/
@@ -15,4 +6,4 @@
 /stack/
 /string/
 /tree/
-/collections/
+/io/

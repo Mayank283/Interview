@@ -7,6 +7,5 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Mayank/Desktop/FieldRuleProcessor.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
