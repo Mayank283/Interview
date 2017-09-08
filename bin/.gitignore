@@ -1,9 +1,29 @@
+<<<<<<< HEAD
+=======
+/codemonk/
+/collections/
+/concept/
+/geometry/
+/graph/
+/hackerrank/
+/heaps/
+/javascript/
+/jdbc/
+/lambda/
+/linkedlist/
+>>>>>>> 1f1e025c4cd39cf0c2a73775b0c1191b431bfa1d
 /multithreading/
 /question/
 /queue/
+/reflection/
 /searching/
 /sorting/
 /stack/
+/streams/
 /string/
 /tree/
+<<<<<<< HEAD
 /io/
+=======
+/design/
+>>>>>>> 1f1e025c4cd39cf0c2a73775b0c1191b431bfa1d
