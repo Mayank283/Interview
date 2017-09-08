@@ -3,6 +3,10 @@ package graph;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+
+/*This implementation is done when maximum vertex count is not known*/
+
+
 public class AdjListGraph {
 
 	private int vertexCount;

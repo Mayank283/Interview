@@ -32,10 +32,13 @@ public class ThreeStringTypes {
 
 		String ss1 = "Amit";
 
+		StringBuilder sb3 = new StringBuilder("mayank");
+
 		System.out.println(sb1 == sb2);
 		System.out.println(sb1.equals(sb2));
 		/** Reason for false is point 3 */
 		System.out.println(sb1.equals(ss1));
+		System.out.println(sb3.equals(sb1));
 		System.out.println("Poddar".substring(3)); // beginindex inclusive start
 													// from 0
 		System.out.println("Poddar".substring(1, 4));// endindex exclusive start

@@ -54,11 +54,11 @@ public class DepthFirstSearchGraph {
 
 	// Get neighbours/Adjacent vertex's
 	public ArrayList<String> getNeighbours(String source) {
-		
+
 		Vertex source1 = null;
 		ArrayList<String> neighbours = new ArrayList<String>();
 		Iterator<Vertex> iterate = vertexList.listIterator();
-		
+
 		while (iterate.hasNext()) {
 			Vertex n = iterate.next();
 			if (n.getLabel() == source) {
@@ -66,22 +66,27 @@ public class DepthFirstSearchGraph {
 				break;
 			}
 		}
-		
+
 		int i = vertexList.indexOf(source1);
 		Iterator<Vertex> iterate1 = adjList[i].listIterator();
-		
+
 		while (iterate1.hasNext()) {
 			Vertex n = iterate1.next();
 			neighbours.add(n.getLabel());
 		}
-		
+
 		return neighbours;
 	}
 
 	public void displayVertex(Vertex v) {
-		System.out.print(v.getLabel()+" ");
+		System.out.print(v.getLabel() + " ");
 	}
 
+	/*
+	 * This will work only when graph is disconnected. To make it work for
+	 * disconnected graph make another method DFSGraph which will check if all
+	 * the vertices are visited or not and call this dfs inside it.
+	 */
 	public void dfs(String start) {
 		Vertex start1 = null;
 		Stack<Vertex> stack = new Stack<Vertex>();
@@ -139,33 +144,5 @@ public class DepthFirstSearchGraph {
 
 		int i = vertexList.indexOf(source1);
 		return (adjList[i].contains(destination1)) ? true : false;
-	}
-}
-
-class Vertex {
-
-	private String label;
-	private boolean visited;
-
-	public Vertex(String label) {
-		super();
-		this.label = label;
-		this.visited = false;
-	}
-
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
-
-	public boolean isVisited() {
-		return visited;
-	}
-
-	public void setVisited(boolean visited) {
-		this.visited = visited;
 	}
 }
