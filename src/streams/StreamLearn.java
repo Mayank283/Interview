@@ -7,7 +7,8 @@ import java.util.stream.Collectors;
 
 /**http://www.baeldung.com/java-8-streams-introduction
  * http://www.baeldung.com/java-8-streams
- * http://www.baeldung.com/java-8-new-features*/
+ * http://www.baeldung.com/java-8-new-features
+ * http://www.concretepage.com/java/jdk-8/*/
 
 public class StreamLearn {
 
