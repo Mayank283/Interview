@@ -5,9 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**http://www.baeldung.com/java-8-streams-introduction
+/**
+ * http://www.baeldung.com/java-8-streams-introduction
  * http://www.baeldung.com/java-8-streams
- * http://www.baeldung.com/java-8-new-features*/
+ * http://www.baeldung.com/java-8-new-features
+ */
 
 public class StreamLearn {
 
@@ -18,7 +20,7 @@ public class StreamLearn {
 		list.add("Srachendra");
 		list.add("Rekha");
 
-		String [] a = new String[]{"a","b","c"};
+		String[] a = new String[] { "a", "b", "c" };
 		StringBuilder role = new StringBuilder();
 
 		list.forEach(action -> {
@@ -30,7 +32,7 @@ public class StreamLearn {
 		String names = list.stream().map(mapper -> mapper.toUpperCase()).collect(Collectors.joining(","));
 		System.out.println(Arrays.asList(names.split(",")).stream().map(mapper -> mapper.toLowerCase())
 				.collect(Collectors.toList()));
-		
+
 		System.out.println(Arrays.stream(a).map(mapper -> mapper.toUpperCase()).collect(Collectors.toList()));
 	}
 }
