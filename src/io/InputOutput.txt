@@ -9,7 +9,7 @@ InputStream -> BufferedInputStream(decorator over InputStream)
 
 Reader: To read input as character array.
 
-Reader -> InputStreamReader extends reader(Decorator over InputStream to convert byte array to char array)
+Reader -> InputStreamReader extends reader(Bridge over InputStream to convert byte array to char array)
 Reader -> CharArrayReader(extends Reader to read data directly as char array)
 Reader -> FileReader(extends InputStreamReader to read character array input from file and transfer it to show)
 Reader -> BufferedReader(decorator over Reader)
@@ -27,7 +27,17 @@ OutputStream -> BufferedOutputStream(decorator over OutputStream)
 
 Writer: To write input as character array.
 
-Writer -> OutputStreamWriter extends writer(Decorator over OutputStream to convert char array to byte array)
+Writer -> OutputStreamWriter extends writer(Bridge over OutputStream to convert char array to byte array)
 Writer -> CharArrayWriter(extends Writer to write data directly as char array)
 Writer -> FileWriter(extends OutputStreamWriter to write character array to file)
 Writer -> BufferedWriter(decorator over Writer)
+
+<-----------------------------------------Understanding read(buffer) and write(buffer) operations.--------------------------------------->
+
+Let's assume buffer be an array of bytes of size n i.e. byte[] buffer = new byte[n]; 
+read(buffer)-> will make n calls to I/O each time fetching 1 byte and putting it in buffer array. 
+write(buffer)-> will make n calls to I/O each time writing 1 byte from buffer.
+
+However if any InputStream is wrapped inside a BufferedInputStream.
+And then if read() call is made then in one call to I/O 8192 bytes will be fetched and stored in buffer. Thus making operation faster.
+Same goes for OutputStream.
