@@ -1,0 +1,33 @@
+InputStream: To read input as bytes array.(used in conjunction with Reader's only)
+
+InputStream -> System.in(Input Stream to read bytes array from system keyboard/console)
+InputStream -> ByteArrayInputStream(extends InputStream to read data directly as bytes array)
+InputStream -> FileInputStream(extends InputStream to read data from file as bytes and transfer it to show)
+InputStream -> BufferedInputStream(decorator over InputStream)
+
+<---------------------------------------------------------------------------------------------------------------------------------------->
+
+Reader: To read input as character array.
+
+Reader -> InputStreamReader extends reader(Decorator over InputStream to convert byte array to char array)
+Reader -> CharArrayReader(extends Reader to read data directly as char array)
+Reader -> FileReader(extends InputStreamReader to read character array input from file and transfer it to show)
+Reader -> BufferedReader(decorator over Reader)
+
+<---------------------------------------------------------------------------------------------------------------------------------------->
+
+OutputStream: To write output as bytes array.
+
+OutputStream -> System.out(Output Stream to write bytes array to console)
+OutputStream -> ByteArrayOutputStream(extends OutputStream to write data directly as bytes array)
+OutputStream -> FileOutputStream(extends OutputStream to write bytes data to file)
+OutputStream -> BufferedOutputStream(decorator over OutputStream)
+
+<---------------------------------------------------------------------------------------------------------------------------------------->
+
+Writer: To write input as character array.
+
+Writer -> OutputStreamWriter extends writer(Decorator over OutputStream to convert char array to byte array)
+Writer -> CharArrayWriter(extends Writer to write data directly as char array)
+Writer -> FileWriter(extends OutputStreamWriter to write character array to file)
+Writer -> BufferedWriter(decorator over Writer)
