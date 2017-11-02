@@ -12,7 +12,7 @@ import java.util.Comparator;
  * To sort Object or ADT we need to extend Comparable/comparator and implement
  * compareTo/compare functions. If the classes which are to be sorted are not
  * accessible then we create class implementing comparator interface and
- * overrides compare method to contain the logic of comparision. If the client
+ * overrides compare method to contain the logic of comparison. If the client
  * wishes the classes to be sorted on some parameter which cannot be naturally
  * sorted then we use comparator interface.
  */

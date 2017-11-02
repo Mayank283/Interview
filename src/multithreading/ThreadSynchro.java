@@ -4,11 +4,13 @@ package multithreading;
  * Synchronization in java is the capability to control the access of multiple
  * threads to any shared resource.
  * 
- * Synchronization in thread can be achieved by 1. Synchronized Method 2.
- * Synchronized Block 3. Static Synchronization
+ * Synchronization in thread can be achieved by:
+ * 1. Synchronized Method (Object level lock is acquired in this)
+ * 2. Synchronized Block (locks available this,object and classname.class)
+ * 3. Static Synchronization(class level lock is acquired in this)
  * 
  * Synchronization is based on the concept of locks: Synchronization is built
- * around an internal entity known as the lock or monitor. Every object has an
+ * around an internal entity known as the lock or monitor. Every object has
  * lock associated with it. By convention, a thread that needs consistent access
  * to an "OBJECT'S FIELDS" has to acquire the object's lock before accessing
  * them, and then release the lock when it's done with them. From Java 5 the
@@ -31,7 +33,7 @@ class Table {
 	}
 }
 
-public class Synchro {
+public class ThreadSynchro {
 	public static void main(String[] args) {
 		final Table table = new Table();
 
