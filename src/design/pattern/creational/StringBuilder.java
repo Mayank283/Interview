@@ -16,6 +16,21 @@ package design.pattern.creational;
  * @author mayank
  *
  */
-public class Builder {
+public class StringBuilder {
 
+	private String info="";
+	
+	public StringBuilder addLastname(String lastName) {
+		this.info = this.info+lastName;
+		return this;
+	}
+	
+	public StringBuilder addFirstname(String firstName) {
+		this.info = this.info+firstName;
+		return this;
+	}
+	
+	public String build() {
+		return this.info;
+	}
 }
