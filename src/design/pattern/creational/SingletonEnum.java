@@ -8,7 +8,7 @@ package design.pattern.creational;
  *
  *         Creating a Singleton class using Enum is the best way as no
  *         synchronization is required,enum are serializable,destruction by
- *         reflection is solved.
+ *         reflection is solved,They are lazy loaded.
  */
 public enum SingletonEnum {
 
