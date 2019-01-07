@@ -1,80 +1,133 @@
 package linkedlist;
 
-public class LinkedListTest {
+public class LinkedListTest
+{
 
-	public static void main(String[] args) {
-		ListNode Head;
+    public static void main(String[] args)
+    {
+        Node head;
 
-		LinkedList link = new LinkedList();
+        LinkedList list = new LinkedList();
 
-		ListNode node1 = new ListNode(15);
+        Node node1 = new Node(15);
 
-		ListNode node2 = new ListNode(20);
+        Node node2 = new Node(20);
 
-		ListNode node3 = new ListNode(25);
+        Node node3 = new Node(25);
 
-		ListNode node4 = new ListNode(30);
+        Node node4 = new Node(30);
 
-		ListNode node5 = new ListNode(35);
-		
-		Head = link.insertEnd(node1);
-		Head = link.insertEnd(node2);
-		Head = link.insertEnd(node3);
-		Head = link.insertEnd(node4);
-		Head = link.insertEnd(node5);
+        Node node5 = new Node(35);
 
-		link.retrieve(Head);
-		//Head = rotateRight(Head, 6);
-		Head = delAlternate(Head);
-		link.retrieve(Head);
-	}
+        System.out.println("Insert End test");
+        list.insertEnd(node1);
+        list.insertEnd(node2);
+        list.insertEnd(node3);
+        list.insertEnd(node4);
+        head = list.insertEnd(node5);
+        list.display(head);
 
-	/** Rotate right problem 57 */
-	public static ListNode rotateRight(ListNode Head, int k) {
-		ListNode p = Head, q = Head;
-		int i = 0;
-		while (i != k) {
-			q = q.getNext();
+        LinkedListTest test = new LinkedListTest();
+        head = test.reverseRecursion(head);
+        head = test.reverseIteration(head);
+        list.display(head);
+        head = test.rotateRight(head, 6);
+        head = test.delAlternate(head);
 
-			if (q == null) {
-				q = Head;
-			}
+        System.out.println("Insert Begin test");
+        LinkedList list1 = new LinkedList();
+        list1.insertBegin(new Node(5));
+        list1.insertBegin(new Node(4));
+        list1.insertBegin(new Node(3));
+        list1.insertBegin(new Node(2));
+        head = list1.insertBegin(new Node(1));
+        list1.display(head);
+    }
 
-			++i;
-		}
+    /** Rotate right problem 57 */
+    public Node rotateRight(Node Head, int k)
+    {
+        Node p = Head, q = Head;
+        int i = 0;
+        while (i != k)
+        {
+            q = q.getNext();
 
-		if (p == q)
-			return Head;
+            if (q == null)
+            {
+                q = Head;
+            }
 
-		while (q.getNext() != null) {
-			q = q.getNext();
-			p = p.getNext();
-		}
-		ListNode temp = p.getNext();
-		q.setNext(Head);
-		p.setNext(null);
-		return temp;
-	}
-	
-	public static ListNode delAlternate(ListNode head){
-		ListNode p = head;
-		ListNode q = head.getNext();
-		ListNode temp;
-		
-		while (q!=null){
-			
-		p.setNext(q.getNext());
-		temp = q;
-		p=temp.getNext();
-		
-		if(q.getNext()!= null)
-			q=q.getNext().getNext();
-		else
-			q=q.getNext();
-		
-		temp.setNext(null);
-		
-		}
-		return head;
-	}
+            ++i;
+        }
+
+        if (p == q)
+        {
+            return Head;
+        }
+
+        while (q.getNext() != null)
+        {
+            q = q.getNext();
+            p = p.getNext();
+        }
+        Node temp = p.getNext();
+        q.setNext(Head);
+        p.setNext(null);
+        return temp;
+    }
+
+    public Node delAlternate(Node head)
+    {
+        Node p = head;
+        Node q = head.getNext();
+        Node temp;
+
+        while (q != null)
+        {
+
+            p.setNext(q.getNext());
+            temp = q;
+            p = temp.getNext();
+
+            if (q.getNext() != null)
+            {
+                q = q.getNext().getNext();
+            } else
+            {
+                q = q.getNext();
+            }
+
+            temp.setNext(null);
+
+        }
+        return head;
+    }
+
+    public Node reverseRecursion(Node head)
+    {
+        if (head.getNext() == null)
+        {
+            return head;
+        }
+        Node head1 = reverseRecursion(head.getNext());
+        head.getNext().setNext(head);
+        head.setNext(null);
+        return head1;
+    }
+
+    public Node reverseIteration(Node head)
+    {
+        Node previous;
+        Node current = head.getNext();
+        head.setNext(null);
+        while (current != null)
+        {
+            previous = head;
+            head = current;
+            current = head.getNext();
+            head.setNext(previous);
+        }
+        return head;
+    }
 }
