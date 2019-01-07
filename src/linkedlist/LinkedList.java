@@ -1,29 +1,48 @@
 package linkedlist;
 
-public class LinkedList {
+public class LinkedList
+{
 
-	private ListNode Head;
+    private Node head;
 
-	public ListNode insertEnd(ListNode node) {
-		ListNode current = Head;
-		if (Head == null) {
-			Head = node;
-		} else {
-			while (current.getNext() != null)
-				current = current.getNext();
-			current.setNext(node);
-		}
-		return Head;
-	}
+    public Node insertEnd(Node node)
+    {
+        Node current = head;
+        if (head == null)
+        {
+            head = node;
+        } else
+        {
+            while (current.getNext() != null)
+            {
+                current = current.getNext();
+            }
+            current.setNext(node);
+        }
+        return head;
+    }
 
-	public void retrieve(ListNode Head) {
+    public Node insertBegin(Node node)
+    {
+        if (head == null)
+        {
+            head = node;
+        } else
+        {
+            node.setNext(head);
+            head = node;
+        }
+        return head;
+    }
 
-		ListNode current = Head;
-
-		while (current != null) {
-			System.out.print(current.getData() + "->");
-			current = current.getNext();
-		}
-		System.out.println();
-	}
+    public void display(Node head)
+    {
+        Node current = head;
+        while (current != null)
+        {
+            System.out.print(current.getData() + "->");
+            current = current.getNext();
+        }
+        System.out.println();
+    }
 }
