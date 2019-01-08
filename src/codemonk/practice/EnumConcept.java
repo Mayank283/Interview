@@ -116,7 +116,8 @@ class Contact {
 
 }
 
-public class Test2 {
+public class EnumConcept
+{
 	public static void main(String[] args) {
 
 		Set<Address> set = new HashSet<Address>();
