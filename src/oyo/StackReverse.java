@@ -1,7 +1,8 @@
-package stack;
+package oyo;
 
 import java.util.Stack;
 
+//Reverse stack without auxillary stack
 public class StackReverse {
 
 	public static void main(String[] args) {

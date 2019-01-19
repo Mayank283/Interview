@@ -17,14 +17,11 @@ public class BinarySearchTree extends BinaryTree {
 			root = new BinaryTreeNode(null, null, data);
 			return root;
 		}
-
-		else {
 			if (data < root.getData()) {
 				root.setLeft(insert(root.getLeft(), data));
 			} else if (data > root.getData()) {
 				root.setRight(insert(root.getRight(), data));
 			}
-		}
 		return root;
 	}
 	// Recursive search
