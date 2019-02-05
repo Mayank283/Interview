@@ -1,5 +1,7 @@
 package tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -74,6 +76,26 @@ public class BinaryTree
     {
     }
 
+    public static void levelOrderTraversal(BinaryTreeNode root)
+    {
+        Queue<BinaryTreeNode> queue = new LinkedList<>();
+        BinaryTreeNode node;
+        queue.offer(root);
+        while (!queue.isEmpty())
+        {
+            node = queue.poll();
+            if (node.getLeft() != null)
+            {
+                queue.offer(node.getLeft());
+            }
+            if (node.getRight() != null)
+            {
+                queue.offer(node.getRight());
+            }
+            System.out.print(node.getData() + " ");
+        }
+    }
+
     //Height
     public static int height(BinaryTreeNode root)
     {
@@ -101,5 +123,34 @@ public class BinaryTree
         }
 
         return search(root.getLeft(), data) || search(root.getRight(), data);
+    }
+
+    public static BinaryTreeNode leastCommonAncestor(BinaryTreeNode root, BinaryTreeNode node1, BinaryTreeNode node2)
+    {
+        if (root == null)
+        {
+            return null;
+        }
+        if (root.getData() == node1.getData() || root.getData() == node2.getData())
+        {
+            return root;
+        }
+
+        BinaryTreeNode leftNode = leastCommonAncestor(root.getLeft(), node1, node2);
+        BinaryTreeNode rightNode = leastCommonAncestor(root.getRight(), node1, node2);
+
+        if (leftNode != null && rightNode != null)
+        {
+            return root;
+        } else if (leftNode != null)
+        {
+            return leftNode;
+        } else if (rightNode != null)
+        {
+            return rightNode;
+        } else
+        {
+            return null;
+        }
     }
 }

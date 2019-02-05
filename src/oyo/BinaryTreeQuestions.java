@@ -19,7 +19,7 @@ public class BinaryTreeQuestions
     {
         BinaryTreeNode eight = new BinaryTreeNode(null, null, 8);
         BinaryTreeNode seven = new BinaryTreeNode(null, null, 7);
-        BinaryTreeNode six = new BinaryTreeNode(eight, seven, 6);
+        BinaryTreeNode six = new BinaryTreeNode(seven, eight, 6);
         BinaryTreeNode five = new BinaryTreeNode(null, null, 5);
         BinaryTreeNode four = new BinaryTreeNode(null, null, 4);
         BinaryTreeNode three = new BinaryTreeNode(null, six, 3);
@@ -27,9 +27,10 @@ public class BinaryTreeQuestions
         BinaryTreeNode root = new BinaryTreeNode(two, three, 1);
 
         BinaryTreeQuestions binaryTreeQuestions = new BinaryTreeQuestions();
-        binaryTreeQuestions.topViewOfBinaryTree(root);
-        binaryTreeQuestions.verticalSum(root);
-        binaryTreeQuestions.bottomViewOfBinaryTree(root);
+        //        binaryTreeQuestions.topViewOfBinaryTree(root);
+        //        binaryTreeQuestions.verticalSum(root);
+        //        binaryTreeQuestions.bottomViewOfBinaryTree(root);
+        binaryTreeQuestions.minimumLevelLeafNodesSum(root);
     }
 
     private void topViewOfBinaryTree(BinaryTreeNode root)
@@ -155,5 +156,39 @@ public class BinaryTreeQuestions
         System.out.println(columnMap.values());
     }
 
-    private void zigzagTraversal
+    public void minimumLevelLeafNodesSum(BinaryTreeNode root)
+    {
+        Queue<BinaryTreeNode> queue = new LinkedList<>();
+        BinaryTreeNode node;
+        int sum = 0;
+        queue.offer(root);
+        queue.offer(null);
+        while (!queue.isEmpty())
+        {
+            node = queue.poll();
+            if (node != null)
+            {
+                if (node.getLeft() == null && node.getRight() == null)
+                {
+                    sum = sum + node.getData();
+                }
+                if (node.getLeft() != null)
+                {
+                    queue.offer(node.getLeft());
+                }
+                if (node.getRight() != null)
+                {
+                    queue.offer(node.getRight());
+                }
+                if (queue.size() != 1 && queue.peek() == null)
+                {
+                    queue.offer(null);
+                }
+            } else if (sum != 0)
+            {
+                System.out.print(sum);
+                return;
+            }
+        }
+    }
 }
