@@ -14,11 +14,9 @@ public class StringSequence
 {
     public static void main(String[] args)
     {
-        String a = "abcdaf";
-        String b = "acbcf";
         StringSequence stringSequence = new StringSequence();
         stringSequence.longestCommonSubsequence("abcdaf", "acbcf");
-        stringSequence.longestCommonSubstring("abcdaf", "zbcdf");
+        stringSequence.longestCommonSubstring("acbcf", "abcdaf");
     }
 
     private void longestCommonSubsequence(String a, String b)
@@ -56,13 +54,13 @@ public class StringSequence
 
             }
         }
-        displayCommonSubsequence(matrix, row - 1, column - 1, stringB);
+        displayCommonSubsequence(matrix, row, column, stringB);
     }
 
     private void longestCommonSubstring(String a, String b)
     {
-        int row = b.length();
-        int column = a.length();
+        int row = b.length() + 1;
+        int column = a.length() + 1;
         char[] stringA = a.toCharArray();
         char[] stringB = b.toCharArray();
 
@@ -71,20 +69,20 @@ public class StringSequence
         //fill first row
         for (int i = 0; i < column; i++)
         {
-            matrix[0][i] = stringB[0] == stringA[i] ? 1 : 0;
+            matrix[0][i] = 0;
         }
 
         //fill first column
-        for (int i = 0; i < row; i++)
+        for (int i = 1; i < row; i++)
         {
-            matrix[i][0] = stringA[0] == stringB[i] ? 1 : 0;
+            matrix[i][0] = 0;
         }
 
         for (int i = 1; i < row; i++)
         {
             for (int j = 1; j < column; j++)
             {
-                if (stringB[i] == stringA[j])
+                if (stringB[i - 1] == stringA[j - 1])
                 {
                     matrix[i][j] = matrix[i - 1][j - 1] + 1;
                 } else
@@ -115,7 +113,7 @@ public class StringSequence
 
         while (matrix[k][l] != 0)
         {
-            s = stringB[k] + s;
+            s = stringB[k - 1] + s;
             k--;
             l--;
         }
@@ -124,7 +122,7 @@ public class StringSequence
 
     private void displayCommonSubsequence(int[][] matrix, int row, int column, char[] stringB)
     {
-        int value = matrix[row][column];
+        int value = matrix[--row][--column];
         String s = "";
         while (value != 0)
         {
